@@ -1,0 +1,480 @@
+race,position,driver_number,driver,team,laps,time,points
+australia,1,4,LandoNorrisNOR,McLaren,57,1:42:06.304,25
+australia,2,1,MaxVerstappenVER,Red Bull Racing,57,+0.895s,18
+australia,3,63,GeorgeRussellRUS,Mercedes,57,+8.481s,15
+australia,4,12,KimiAntonelliANT,Mercedes,57,+10.135s,12
+australia,5,23,AlexanderAlbonALB,Williams,57,+12.773s,10
+australia,6,18,LanceStrollSTR,Aston Martin,57,+17.413s,8
+australia,7,27,NicoHulkenbergHUL,Kick Sauber,57,+18.423s,6
+australia,8,16,CharlesLeclercLEC,Ferrari,57,+19.826s,4
+australia,9,81,OscarPiastriPIA,McLaren,57,+20.448s,2
+australia,10,44,LewisHamiltonHAM,Ferrari,57,+22.473s,1
+australia,11,10,PierreGaslyGAS,Alpine,57,+26.502s,0
+australia,12,22,YukiTsunodaTSU,Racing Bulls,57,+29.884s,0
+australia,13,31,EstebanOconOCO,Haas F1 Team,57,+33.161s,0
+australia,14,87,OliverBearmanBEA,Haas F1 Team,57,+40.351s,0
+australia,NC,30,LiamLawsonLAW,Red Bull Racing,46,DNF,0
+australia,NC,5,GabrielBortoletoBOR,Kick Sauber,45,DNF,0
+australia,NC,14,FernandoAlonsoALO,Aston Martin,32,DNF,0
+australia,NC,55,CarlosSainzSAI,Williams,0,DNF,0
+australia,NC,7,JackDoohanDOO,Alpine,0,DNF,0
+australia,NC,6,IsackHadjarHAD,Racing Bulls,0,DNS,0
+china,1,81,OscarPiastriPIA,McLaren,56,1:30:55.026,25
+china,2,4,LandoNorrisNOR,McLaren,56,+9.748s,18
+china,3,63,GeorgeRussellRUS,Mercedes,56,+11.097s,15
+china,4,1,MaxVerstappenVER,Red Bull Racing,56,+16.656s,12
+china,5,31,EstebanOconOCO,Haas F1 Team,56,+49.969s,10
+china,6,12,KimiAntonelliANT,Mercedes,56,+53.748s,8
+china,7,23,AlexanderAlbonALB,Williams,56,+56.321s,6
+china,8,87,OliverBearmanBEA,Haas F1 Team,56,+61.303s,4
+china,9,18,LanceStrollSTR,Aston Martin,56,+70.204s,2
+china,10,55,CarlosSainzSAI,Williams,56,+76.387s,1
+china,11,6,IsackHadjarHAD,Racing Bulls,56,+78.875s,0
+china,12,30,LiamLawsonLAW,Red Bull Racing,56,+81.147s,0
+china,13,7,JackDoohanDOO,Alpine,56,+88.401s,0
+china,14,5,GabrielBortoletoBOR,Kick Sauber,55,+1 lap,0
+china,15,27,NicoHulkenbergHUL,Kick Sauber,55,+1 lap,0
+china,16,22,YukiTsunodaTSU,Racing Bulls,55,+1 lap,0
+china,NC,14,FernandoAlonsoALO,Aston Martin,4,DNF,0
+china,DQ,16,CharlesLeclercLEC,Ferrari,,DSQ,0
+china,DQ,44,LewisHamiltonHAM,Ferrari,,DSQ,0
+china,DQ,10,PierreGaslyGAS,Alpine,,DSQ,0
+japan,1,1,MaxVerstappenVER,Red Bull Racing,53,1:22:06.983,25
+japan,2,4,LandoNorrisNOR,McLaren,53,+1.423s,18
+japan,3,81,OscarPiastriPIA,McLaren,53,+2.129s,15
+japan,4,16,CharlesLeclercLEC,Ferrari,53,+16.097s,12
+japan,5,63,GeorgeRussellRUS,Mercedes,53,+17.362s,10
+japan,6,12,KimiAntonelliANT,Mercedes,53,+18.671s,8
+japan,7,44,LewisHamiltonHAM,Ferrari,53,+29.182s,6
+japan,8,6,IsackHadjarHAD,Racing Bulls,53,+37.134s,4
+japan,9,23,AlexanderAlbonALB,Williams,53,+40.367s,2
+japan,10,87,OliverBearmanBEA,Haas F1 Team,53,+54.529s,1
+japan,11,14,FernandoAlonsoALO,Aston Martin,53,+57.333s,0
+japan,12,22,YukiTsunodaTSU,Red Bull Racing,53,+58.401s,0
+japan,13,10,PierreGaslyGAS,Alpine,53,+62.122s,0
+japan,14,55,CarlosSainzSAI,Williams,53,+74.129s,0
+japan,15,7,JackDoohanDOO,Alpine,53,+81.314s,0
+japan,16,27,NicoHulkenbergHUL,Kick Sauber,53,+81.957s,0
+japan,17,30,LiamLawsonLAW,Racing Bulls,53,+82.734s,0
+japan,18,31,EstebanOconOCO,Haas F1 Team,53,+83.438s,0
+japan,19,5,GabrielBortoletoBOR,Kick Sauber,53,+83.897s,0
+japan,20,18,LanceStrollSTR,Aston Martin,52,+1 lap,0
+bahrain,1,81,OscarPiastriPIA,McLaren,57,1:35:39.435,25
+bahrain,2,63,GeorgeRussellRUS,Mercedes,57,+15.499s,18
+bahrain,3,4,LandoNorrisNOR,McLaren,57,+16.273s,15
+bahrain,4,16,CharlesLeclercLEC,Ferrari,57,+19.679s,12
+bahrain,5,44,LewisHamiltonHAM,Ferrari,57,+27.993s,10
+bahrain,6,1,MaxVerstappenVER,Red Bull Racing,57,+34.395s,8
+bahrain,7,10,PierreGaslyGAS,Alpine,57,+36.002s,6
+bahrain,8,31,EstebanOconOCO,Haas F1 Team,57,+44.244s,4
+bahrain,9,22,YukiTsunodaTSU,Red Bull Racing,57,+45.061s,2
+bahrain,10,87,OliverBearmanBEA,Haas F1 Team,57,+47.594s,1
+bahrain,11,12,KimiAntonelliANT,Mercedes,57,+48.016s,0
+bahrain,12,23,AlexanderAlbonALB,Williams,57,+48.839s,0
+bahrain,13,6,IsackHadjarHAD,Racing Bulls,57,+56.314s,0
+bahrain,14,7,JackDoohanDOO,Alpine,57,+57.806s,0
+bahrain,15,14,FernandoAlonsoALO,Aston Martin,57,+60.340s,0
+bahrain,16,30,LiamLawsonLAW,Racing Bulls,57,+64.435s,0
+bahrain,17,18,LanceStrollSTR,Aston Martin,57,+65.489s,0
+bahrain,18,5,GabrielBortoletoBOR,Kick Sauber,57,+66.872s,0
+bahrain,NC,55,CarlosSainzSAI,Williams,45,DNF,0
+bahrain,DQ,27,NicoHulkenbergHUL,Kick Sauber,,DSQ,0
+saudi-arabia,1,81,OscarPiastriPIA,McLaren,50,1:21:06.758,25
+saudi-arabia,2,1,MaxVerstappenVER,Red Bull Racing,50,+2.843s,18
+saudi-arabia,3,16,CharlesLeclercLEC,Ferrari,50,+8.104s,15
+saudi-arabia,4,4,LandoNorrisNOR,McLaren,50,+9.196s,12
+saudi-arabia,5,63,GeorgeRussellRUS,Mercedes,50,+27.236s,10
+saudi-arabia,6,12,KimiAntonelliANT,Mercedes,50,+34.688s,8
+saudi-arabia,7,44,LewisHamiltonHAM,Ferrari,50,+39.073s,6
+saudi-arabia,8,55,CarlosSainzSAI,Williams,50,+64.630s,4
+saudi-arabia,9,23,AlexanderAlbonALB,Williams,50,+66.515s,2
+saudi-arabia,10,6,IsackHadjarHAD,Racing Bulls,50,+67.091s,1
+saudi-arabia,11,14,FernandoAlonsoALO,Aston Martin,50,+75.917s,0
+saudi-arabia,12,30,LiamLawsonLAW,Racing Bulls,50,+78.451s,0
+saudi-arabia,13,87,OliverBearmanBEA,Haas F1 Team,50,+79.194s,0
+saudi-arabia,14,31,EstebanOconOCO,Haas F1 Team,50,+99.723s,0
+saudi-arabia,15,27,NicoHulkenbergHUL,Kick Sauber,49,+1 lap,0
+saudi-arabia,16,18,LanceStrollSTR,Aston Martin,49,+1 lap,0
+saudi-arabia,17,7,JackDoohanDOO,Alpine,49,+1 lap,0
+saudi-arabia,18,5,GabrielBortoletoBOR,Kick Sauber,49,+1 lap,0
+saudi-arabia,NC,22,YukiTsunodaTSU,Red Bull Racing,1,DNF,0
+saudi-arabia,NC,10,PierreGaslyGAS,Alpine,0,DNF,0
+miami,1,81,OscarPiastriPIA,McLaren,57,1:28:51.587,25
+miami,2,4,LandoNorrisNOR,McLaren,57,+4.630s,18
+miami,3,63,GeorgeRussellRUS,Mercedes,57,+37.644s,15
+miami,4,1,MaxVerstappenVER,Red Bull Racing,57,+39.956s,12
+miami,5,23,AlexanderAlbonALB,Williams,57,+48.067s,10
+miami,6,12,KimiAntonelliANT,Mercedes,57,+55.502s,8
+miami,7,16,CharlesLeclercLEC,Ferrari,57,+57.036s,6
+miami,8,44,LewisHamiltonHAM,Ferrari,57,+60.186s,4
+miami,9,55,CarlosSainzSAI,Williams,57,+60.577s,2
+miami,10,22,YukiTsunodaTSU,Red Bull Racing,57,+74.434s,1
+miami,11,6,IsackHadjarHAD,Racing Bulls,57,+74.602s,0
+miami,12,31,EstebanOconOCO,Haas F1 Team,57,+82.006s,0
+miami,13,10,PierreGaslyGAS,Alpine,57,+90.445s,0
+miami,14,27,NicoHulkenbergHUL,Kick Sauber,56,+1 lap,0
+miami,15,14,FernandoAlonsoALO,Aston Martin,56,+1 lap,0
+miami,16,18,LanceStrollSTR,Aston Martin,56,+1 lap,0
+miami,NC,30,LiamLawsonLAW,Racing Bulls,36,DNF,0
+miami,NC,5,GabrielBortoletoBOR,Kick Sauber,30,DNF,0
+miami,NC,87,OliverBearmanBEA,Haas F1 Team,27,DNF,0
+miami,NC,7,JackDoohanDOO,Alpine,0,DNF,0
+emilia-romagna,1,1,MaxVerstappenVER,Red Bull Racing,63,1:31:33.199,25
+emilia-romagna,2,4,LandoNorrisNOR,McLaren,63,+6.109s,18
+emilia-romagna,3,81,OscarPiastriPIA,McLaren,63,+12.956s,15
+emilia-romagna,4,44,LewisHamiltonHAM,Ferrari,63,+14.356s,12
+emilia-romagna,5,23,AlexanderAlbonALB,Williams,63,+17.945s,10
+emilia-romagna,6,16,CharlesLeclercLEC,Ferrari,63,+20.774s,8
+emilia-romagna,7,63,GeorgeRussellRUS,Mercedes,63,+22.034s,6
+emilia-romagna,8,55,CarlosSainzSAI,Williams,63,+22.898s,4
+emilia-romagna,9,6,IsackHadjarHAD,Racing Bulls,63,+23.586s,2
+emilia-romagna,10,22,YukiTsunodaTSU,Red Bull Racing,63,+26.446s,1
+emilia-romagna,11,14,FernandoAlonsoALO,Aston Martin,63,+27.250s,0
+emilia-romagna,12,27,NicoHulkenbergHUL,Kick Sauber,63,+30.296s,0
+emilia-romagna,13,10,PierreGaslyGAS,Alpine,63,+31.424s,0
+emilia-romagna,14,30,LiamLawsonLAW,Racing Bulls,63,+32.511s,0
+emilia-romagna,15,18,LanceStrollSTR,Aston Martin,63,+32.993s,0
+emilia-romagna,16,43,FrancoColapintoCOL,Alpine,63,+33.411s,0
+emilia-romagna,17,87,OliverBearmanBEA,Haas F1 Team,63,+33.808s,0
+emilia-romagna,18,5,GabrielBortoletoBOR,Kick Sauber,63,+38.572s,0
+emilia-romagna,NC,12,KimiAntonelliANT,Mercedes,44,DNF,0
+emilia-romagna,NC,31,EstebanOconOCO,Haas F1 Team,27,DNF,0
+monaco,1,4,LandoNorrisNOR,McLaren,78,1:40:33.843,25
+monaco,2,16,CharlesLeclercLEC,Ferrari,78,+3.131s,18
+monaco,3,81,OscarPiastriPIA,McLaren,78,+3.658s,15
+monaco,4,1,MaxVerstappenVER,Red Bull Racing,78,+20.572s,12
+monaco,5,44,LewisHamiltonHAM,Ferrari,78,+51.387s,10
+monaco,6,6,IsackHadjarHAD,Racing Bulls,77,+1 lap,8
+monaco,7,31,EstebanOconOCO,Haas F1 Team,77,+1 lap,6
+monaco,8,30,LiamLawsonLAW,Racing Bulls,77,+1 lap,4
+monaco,9,23,AlexanderAlbonALB,Williams,76,+2 laps,2
+monaco,10,55,CarlosSainzSAI,Williams,76,+2 laps,1
+monaco,11,63,GeorgeRussellRUS,Mercedes,76,+2 laps,0
+monaco,12,87,OliverBearmanBEA,Haas F1 Team,76,+2 laps,0
+monaco,13,43,FrancoColapintoCOL,Alpine,76,+2 laps,0
+monaco,14,5,GabrielBortoletoBOR,Kick Sauber,76,+2 laps,0
+monaco,15,18,LanceStrollSTR,Aston Martin,76,+2 laps,0
+monaco,16,27,NicoHulkenbergHUL,Kick Sauber,76,+2 laps,0
+monaco,17,22,YukiTsunodaTSU,Red Bull Racing,76,+2 laps,0
+monaco,18,12,KimiAntonelliANT,Mercedes,75,+3 laps,0
+monaco,NC,14,FernandoAlonsoALO,Aston Martin,36,DNF,0
+monaco,NC,10,PierreGaslyGAS,Alpine,7,DNF,0
+spain,1,81,OscarPiastriPIA,McLaren,66,1:32:57.375,25
+spain,2,4,LandoNorrisNOR,McLaren,66,+2.471s,18
+spain,3,16,CharlesLeclercLEC,Ferrari,66,+10.455s,15
+spain,4,63,GeorgeRussellRUS,Mercedes,66,+11.359s,12
+spain,5,27,NicoHulkenbergHUL,Kick Sauber,66,+13.648s,10
+spain,6,44,LewisHamiltonHAM,Ferrari,66,+15.508s,8
+spain,7,6,IsackHadjarHAD,Racing Bulls,66,+16.022s,6
+spain,8,10,PierreGaslyGAS,Alpine,66,+17.882s,4
+spain,9,14,FernandoAlonsoALO,Aston Martin,66,+21.564s,2
+spain,10,1,MaxVerstappenVER,Red Bull Racing,66,+21.826s,1
+spain,11,30,LiamLawsonLAW,Racing Bulls,66,+25.532s,0
+spain,12,5,GabrielBortoletoBOR,Kick Sauber,66,+25.996s,0
+spain,13,22,YukiTsunodaTSU,Red Bull Racing,66,+28.822s,0
+spain,14,55,CarlosSainzSAI,Williams,66,+29.309s,0
+spain,15,43,FrancoColapintoCOL,Alpine,66,+31.381s,0
+spain,16,31,EstebanOconOCO,Haas F1 Team,66,+32.197s,0
+spain,17,87,OliverBearmanBEA,Haas F1 Team,66,+37.065s,0
+spain,NC,12,KimiAntonelliANT,Mercedes,53,DNF,0
+spain,NC,23,AlexanderAlbonALB,Williams,27,DNF,0
+canada,1,63,GeorgeRussellRUS,Mercedes,70,1:31:52.688,25
+canada,2,1,MaxVerstappenVER,Red Bull Racing,70,+0.228s,18
+canada,3,12,KimiAntonelliANT,Mercedes,70,+1.014s,15
+canada,4,81,OscarPiastriPIA,McLaren,70,+2.109s,12
+canada,5,16,CharlesLeclercLEC,Ferrari,70,+3.442s,10
+canada,6,44,LewisHamiltonHAM,Ferrari,70,+10.713s,8
+canada,7,14,FernandoAlonsoALO,Aston Martin,70,+10.972s,6
+canada,8,27,NicoHulkenbergHUL,Kick Sauber,70,+15.364s,4
+canada,9,31,EstebanOconOCO,Haas F1 Team,69,+1 lap,2
+canada,10,55,CarlosSainzSAI,Williams,69,+1 lap,1
+canada,11,87,OliverBearmanBEA,Haas F1 Team,69,+1 lap,0
+canada,12,22,YukiTsunodaTSU,Red Bull Racing,69,+1 lap,0
+canada,13,43,FrancoColapintoCOL,Alpine,69,+1 lap,0
+canada,14,5,GabrielBortoletoBOR,Kick Sauber,69,+1 lap,0
+canada,15,10,PierreGaslyGAS,Alpine,69,+1 lap,0
+canada,16,6,IsackHadjarHAD,Racing Bulls,69,+1 lap,0
+canada,17,18,LanceStrollSTR,Aston Martin,69,+1 lap,0
+canada,18,4,LandoNorrisNOR,McLaren,66,DNF,0
+canada,NC,30,LiamLawsonLAW,Racing Bulls,53,DNF,0
+canada,NC,23,AlexanderAlbonALB,Williams,46,DNF,0
+austria,1,4,LandoNorrisNOR,McLaren,70,1:23:47.693,25
+austria,2,81,OscarPiastriPIA,McLaren,70,+2.695s,18
+austria,3,16,CharlesLeclercLEC,Ferrari,70,+19.820s,15
+austria,4,44,LewisHamiltonHAM,Ferrari,70,+29.020s,12
+austria,5,63,GeorgeRussellRUS,Mercedes,70,+62.396s,10
+austria,6,30,LiamLawsonLAW,Racing Bulls,70,+67.754s,8
+austria,7,14,FernandoAlonsoALO,Aston Martin,69,+1 lap,6
+austria,8,5,GabrielBortoletoBOR,Kick Sauber,69,+1 lap,4
+austria,9,27,NicoHulkenbergHUL,Kick Sauber,69,+1 lap,2
+austria,10,31,EstebanOconOCO,Haas F1 Team,69,+1 lap,1
+austria,11,87,OliverBearmanBEA,Haas F1 Team,69,+1 lap,0
+austria,12,6,IsackHadjarHAD,Racing Bulls,69,+1 lap,0
+austria,13,10,PierreGaslyGAS,Alpine,69,+1 lap,0
+austria,14,18,LanceStrollSTR,Aston Martin,69,+1 lap,0
+austria,15,43,FrancoColapintoCOL,Alpine,69,+1 lap,0
+austria,16,22,YukiTsunodaTSU,Red Bull Racing,68,+2 laps,0
+austria,NC,23,AlexanderAlbonALB,Williams,15,DNF,0
+austria,NC,1,MaxVerstappenVER,Red Bull Racing,0,DNF,0
+austria,NC,12,KimiAntonelliANT,Mercedes,0,DNF,0
+austria,NC,55,CarlosSainzSAI,Williams,0,DNS,0
+great-britain,1,4,LandoNorrisNOR,McLaren,52,1:37:15.735,25
+great-britain,2,81,OscarPiastriPIA,McLaren,52,+6.812s,18
+great-britain,3,27,NicoHulkenbergHUL,Kick Sauber,52,+34.742s,15
+great-britain,4,44,LewisHamiltonHAM,Ferrari,52,+39.812s,12
+great-britain,5,1,MaxVerstappenVER,Red Bull Racing,52,+56.781s,10
+great-britain,6,10,PierreGaslyGAS,Alpine,52,+59.857s,8
+great-britain,7,18,LanceStrollSTR,Aston Martin,52,+60.603s,6
+great-britain,8,23,AlexanderAlbonALB,Williams,52,+64.135s,4
+great-britain,9,14,FernandoAlonsoALO,Aston Martin,52,+65.858s,2
+great-britain,10,63,GeorgeRussellRUS,Mercedes,52,+70.674s,1
+great-britain,11,87,OliverBearmanBEA,Haas F1 Team,52,+72.095s,0
+great-britain,12,55,CarlosSainzSAI,Williams,52,+76.592s,0
+great-britain,13,31,EstebanOconOCO,Haas F1 Team,52,+77.301s,0
+great-britain,14,16,CharlesLeclercLEC,Ferrari,52,+84.477s,0
+great-britain,15,22,YukiTsunodaTSU,Red Bull Racing,51,+1 lap,0
+great-britain,NC,12,KimiAntonelliANT,Mercedes,23,DNF,0
+great-britain,NC,6,IsackHadjarHAD,Racing Bulls,17,DNF,0
+great-britain,NC,5,GabrielBortoletoBOR,Kick Sauber,3,DNF,0
+great-britain,NC,30,LiamLawsonLAW,Racing Bulls,0,DNF,0
+great-britain,NC,43,FrancoColapintoCOL,Alpine,0,DNS,0
+belgium,1,81,OscarPiastriPIA,McLaren,44,1:25:22.601,25
+belgium,2,4,LandoNorrisNOR,McLaren,44,+3.415s,18
+belgium,3,16,CharlesLeclercLEC,Ferrari,44,+20.185s,15
+belgium,4,1,MaxVerstappenVER,Red Bull Racing,44,+21.731s,12
+belgium,5,63,GeorgeRussellRUS,Mercedes,44,+34.863s,10
+belgium,6,23,AlexanderAlbonALB,Williams,44,+39.926s,8
+belgium,7,44,LewisHamiltonHAM,Ferrari,44,+40.679s,6
+belgium,8,30,LiamLawsonLAW,Racing Bulls,44,+52.033s,4
+belgium,9,5,GabrielBortoletoBOR,Kick Sauber,44,+56.434s,2
+belgium,10,10,PierreGaslyGAS,Alpine,44,+72.714s,1
+belgium,11,87,OliverBearmanBEA,Haas F1 Team,44,+73.145s,0
+belgium,12,27,NicoHulkenbergHUL,Kick Sauber,44,+73.628s,0
+belgium,13,22,YukiTsunodaTSU,Red Bull Racing,44,+75.395s,0
+belgium,14,18,LanceStrollSTR,Aston Martin,44,+79.831s,0
+belgium,15,31,EstebanOconOCO,Haas F1 Team,44,+86.063s,0
+belgium,16,12,KimiAntonelliANT,Mercedes,44,+86.721s,0
+belgium,17,14,FernandoAlonsoALO,Aston Martin,44,+87.924s,0
+belgium,18,55,CarlosSainzSAI,Williams,44,+92.024s,0
+belgium,19,43,FrancoColapintoCOL,Alpine,44,+95.250s,0
+belgium,20,6,IsackHadjarHAD,Racing Bulls,43,+1 lap,0
+hungary,1,4,LandoNorrisNOR,McLaren,70,1:35:21.231,25
+hungary,2,81,OscarPiastriPIA,McLaren,70,+0.698s,18
+hungary,3,63,GeorgeRussellRUS,Mercedes,70,+21.916s,15
+hungary,4,16,CharlesLeclercLEC,Ferrari,70,+42.560s,12
+hungary,5,14,FernandoAlonsoALO,Aston Martin,70,+59.040s,10
+hungary,6,5,GabrielBortoletoBOR,Kick Sauber,70,+66.169s,8
+hungary,7,18,LanceStrollSTR,Aston Martin,70,+68.174s,6
+hungary,8,30,LiamLawsonLAW,Racing Bulls,70,+69.451s,4
+hungary,9,1,MaxVerstappenVER,Red Bull Racing,70,+72.645s,2
+hungary,10,12,KimiAntonelliANT,Mercedes,69,+1 lap,1
+hungary,11,6,IsackHadjarHAD,Racing Bulls,69,+1 lap,0
+hungary,12,44,LewisHamiltonHAM,Ferrari,69,+1 lap,0
+hungary,13,27,NicoHulkenbergHUL,Kick Sauber,69,+1 lap,0
+hungary,14,55,CarlosSainzSAI,Williams,69,+1 lap,0
+hungary,15,23,AlexanderAlbonALB,Williams,69,+1 lap,0
+hungary,16,31,EstebanOconOCO,Haas F1 Team,69,+1 lap,0
+hungary,17,22,YukiTsunodaTSU,Red Bull Racing,69,+1 lap,0
+hungary,18,43,FrancoColapintoCOL,Alpine,69,+1 lap,0
+hungary,19,10,PierreGaslyGAS,Alpine,69,+1 lap,0
+hungary,NC,87,OliverBearmanBEA,Haas F1 Team,48,DNF,0
+netherlands,1,81,OscarPiastriPIA,McLaren,72,1:38:29.849,25
+netherlands,2,1,MaxVerstappenVER,Red Bull Racing,72,+1.271s,18
+netherlands,3,6,IsackHadjarHAD,Racing Bulls,72,+3.233s,15
+netherlands,4,63,GeorgeRussellRUS,Mercedes,72,+5.654s,12
+netherlands,5,23,AlexanderAlbonALB,Williams,72,+6.327s,10
+netherlands,6,87,OliverBearmanBEA,Haas F1 Team,72,+9.044s,8
+netherlands,7,18,LanceStrollSTR,Aston Martin,72,+9.497s,6
+netherlands,8,14,FernandoAlonsoALO,Aston Martin,72,+11.709s,4
+netherlands,9,22,YukiTsunodaTSU,Red Bull Racing,72,+13.597s,2
+netherlands,10,31,EstebanOconOCO,Haas F1 Team,72,+14.063s,1
+netherlands,11,43,FrancoColapintoCOL,Alpine,72,+14.511s,0
+netherlands,12,30,LiamLawsonLAW,Racing Bulls,72,+17.063s,0
+netherlands,13,55,CarlosSainzSAI,Williams,72,+17.376s,0
+netherlands,14,27,NicoHulkenbergHUL,Kick Sauber,72,+19.725s,0
+netherlands,15,5,GabrielBortoletoBOR,Kick Sauber,72,+21.565s,0
+netherlands,16,12,KimiAntonelliANT,Mercedes,72,+22.029s,0
+netherlands,17,10,PierreGaslyGAS,Alpine,72,+23.629s,0
+netherlands,18,4,LandoNorrisNOR,McLaren,64,DNF,0
+netherlands,NC,16,CharlesLeclercLEC,Ferrari,52,DNF,0
+netherlands,NC,44,LewisHamiltonHAM,Ferrari,22,DNF,0
+italy,1,1,MaxVerstappenVER,Red Bull Racing,53,1:13:24.325,25
+italy,2,4,LandoNorrisNOR,McLaren,53,+19.207s,18
+italy,3,81,OscarPiastriPIA,McLaren,53,+21.351s,15
+italy,4,16,CharlesLeclercLEC,Ferrari,53,+25.624s,12
+italy,5,63,GeorgeRussellRUS,Mercedes,53,+32.881s,10
+italy,6,44,LewisHamiltonHAM,Ferrari,53,+37.449s,8
+italy,7,23,AlexanderAlbonALB,Williams,53,+50.537s,6
+italy,8,5,GabrielBortoletoBOR,Kick Sauber,53,+58.484s,4
+italy,9,12,KimiAntonelliANT,Mercedes,53,+59.762s,2
+italy,10,6,IsackHadjarHAD,Racing Bulls,53,+63.891s,1
+italy,11,55,CarlosSainzSAI,Williams,53,+64.469s,0
+italy,12,87,OliverBearmanBEA,Haas F1 Team,53,+79.288s,0
+italy,13,22,YukiTsunodaTSU,Red Bull Racing,53,+80.701s,0
+italy,14,30,LiamLawsonLAW,Racing Bulls,53,+82.351s,0
+italy,15,31,EstebanOconOCO,Haas F1 Team,52,+1 lap,0
+italy,16,10,PierreGaslyGAS,Alpine,52,+1 lap,0
+italy,17,43,FrancoColapintoCOL,Alpine,52,+1 lap,0
+italy,18,18,LanceStrollSTR,Aston Martin,52,+1 lap,0
+italy,NC,14,FernandoAlonsoALO,Aston Martin,24,DNF,0
+italy,NC,27,NicoHulkenbergHUL,Kick Sauber,0,DNS,0
+azerbaijan,1,1,MaxVerstappenVER,Red Bull Racing,51,1:33:26.408,25
+azerbaijan,2,63,GeorgeRussellRUS,Mercedes,51,+14.609s,18
+azerbaijan,3,55,CarlosSainzSAI,Williams,51,+19.199s,15
+azerbaijan,4,12,KimiAntonelliANT,Mercedes,51,+21.760s,12
+azerbaijan,5,30,LiamLawsonLAW,Racing Bulls,51,+33.290s,10
+azerbaijan,6,22,YukiTsunodaTSU,Red Bull Racing,51,+33.808s,8
+azerbaijan,7,4,LandoNorrisNOR,McLaren,51,+34.227s,6
+azerbaijan,8,44,LewisHamiltonHAM,Ferrari,51,+36.310s,4
+azerbaijan,9,16,CharlesLeclercLEC,Ferrari,51,+36.774s,2
+azerbaijan,10,6,IsackHadjarHAD,Racing Bulls,51,+38.982s,1
+azerbaijan,11,5,GabrielBortoletoBOR,Kick Sauber,51,+67.606s,0
+azerbaijan,12,87,OliverBearmanBEA,Haas F1 Team,51,+68.262s,0
+azerbaijan,13,23,AlexanderAlbonALB,Williams,51,+72.870s,0
+azerbaijan,14,31,EstebanOconOCO,Haas F1 Team,51,+77.580s,0
+azerbaijan,15,14,FernandoAlonsoALO,Aston Martin,51,+78.707s,0
+azerbaijan,16,27,NicoHulkenbergHUL,Kick Sauber,51,+80.237s,0
+azerbaijan,17,18,LanceStrollSTR,Aston Martin,51,+96.392s,0
+azerbaijan,18,10,PierreGaslyGAS,Alpine,50,+1 lap,0
+azerbaijan,19,43,FrancoColapintoCOL,Alpine,50,+1 lap,0
+azerbaijan,NC,81,OscarPiastriPIA,McLaren,0,DNF,0
+singapore,1,63,GeorgeRussellRUS,Mercedes,62,1:40:22.367,25
+singapore,2,1,MaxVerstappenVER,Red Bull Racing,62,+5.430s,18
+singapore,3,4,LandoNorrisNOR,McLaren,62,+6.066s,15
+singapore,4,81,OscarPiastriPIA,McLaren,62,+8.146s,12
+singapore,5,12,KimiAntonelliANT,Mercedes,62,+33.681s,10
+singapore,6,16,CharlesLeclercLEC,Ferrari,62,+45.996s,8
+singapore,7,14,FernandoAlonsoALO,Aston Martin,62,+80.667s,6
+singapore,8,44,LewisHamiltonHAM,Ferrari,62,+85.251s,4
+singapore,9,87,OliverBearmanBEA,Haas F1 Team,62,+93.527s,2
+singapore,10,55,CarlosSainzSAI,Williams,61,+1 lap,1
+singapore,11,6,IsackHadjarHAD,Racing Bulls,61,+1 lap,0
+singapore,12,22,YukiTsunodaTSU,Red Bull Racing,61,+1 lap,0
+singapore,13,18,LanceStrollSTR,Aston Martin,61,+1 lap,0
+singapore,14,23,AlexanderAlbonALB,Williams,61,+1 lap,0
+singapore,15,30,LiamLawsonLAW,Racing Bulls,61,+1 lap,0
+singapore,16,43,FrancoColapintoCOL,Alpine,61,+1 lap,0
+singapore,17,5,GabrielBortoletoBOR,Kick Sauber,61,+1 lap,0
+singapore,18,31,EstebanOconOCO,Haas F1 Team,61,+1 lap,0
+singapore,19,10,PierreGaslyGAS,Alpine,61,+1 lap,0
+singapore,20,27,NicoHulkenbergHUL,Kick Sauber,61,+1 lap,0
+united-states,1,1,MaxVerstappenVER,Red Bull Racing,56,1:34:00.161,25
+united-states,2,4,LandoNorrisNOR,McLaren,56,+7.959s,18
+united-states,3,16,CharlesLeclercLEC,Ferrari,56,+15.373s,15
+united-states,4,44,LewisHamiltonHAM,Ferrari,56,+28.536s,12
+united-states,5,81,OscarPiastriPIA,McLaren,56,+29.678s,10
+united-states,6,63,GeorgeRussellRUS,Mercedes,56,+33.456s,8
+united-states,7,22,YukiTsunodaTSU,Red Bull Racing,56,+52.714s,6
+united-states,8,27,NicoHulkenbergHUL,Kick Sauber,56,+57.249s,4
+united-states,9,87,OliverBearmanBEA,Haas F1 Team,56,+64.722s,2
+united-states,10,14,FernandoAlonsoALO,Aston Martin,56,+70.001s,1
+united-states,11,30,LiamLawsonLAW,Racing Bulls,56,+73.209s,0
+united-states,12,18,LanceStrollSTR,Aston Martin,56,+74.778s,0
+united-states,13,12,KimiAntonelliANT,Mercedes,56,+75.746s,0
+united-states,14,23,AlexanderAlbonALB,Williams,56,+80.000s,0
+united-states,15,31,EstebanOconOCO,Haas F1 Team,56,+83.043s,0
+united-states,16,6,IsackHadjarHAD,Racing Bulls,56,+92.807s,0
+united-states,17,43,FrancoColapintoCOL,Alpine,55,+1 lap,0
+united-states,18,5,GabrielBortoletoBOR,Kick Sauber,55,+1 lap,0
+united-states,19,10,PierreGaslyGAS,Alpine,55,+1 lap,0
+united-states,NC,55,CarlosSainzSAI,Williams,5,DNF,0
+mexico,1,4,LandoNorrisNOR,McLaren,71,1:37:58.574,25
+mexico,2,16,CharlesLeclercLEC,Ferrari,71,+30.324s,18
+mexico,3,1,MaxVerstappenVER,Red Bull Racing,71,+31.049s,15
+mexico,4,87,OliverBearmanBEA,Haas F1 Team,71,+40.955s,12
+mexico,5,81,OscarPiastriPIA,McLaren,71,+42.065s,10
+mexico,6,12,KimiAntonelliANT,Mercedes,71,+47.837s,8
+mexico,7,63,GeorgeRussellRUS,Mercedes,71,+50.287s,6
+mexico,8,44,LewisHamiltonHAM,Ferrari,71,+56.446s,4
+mexico,9,31,EstebanOconOCO,Haas F1 Team,71,+75.464s,2
+mexico,10,5,GabrielBortoletoBOR,Kick Sauber,71,+76.863s,1
+mexico,11,22,YukiTsunodaTSU,Red Bull Racing,71,+79.048s,0
+mexico,12,23,AlexanderAlbonALB,Williams,70,+1 lap,0
+mexico,13,6,IsackHadjarHAD,Racing Bulls,70,+1 lap,0
+mexico,14,18,LanceStrollSTR,Aston Martin,70,+1 lap,0
+mexico,15,10,PierreGaslyGAS,Alpine,70,+1 lap,0
+mexico,16,43,FrancoColapintoCOL,Alpine,70,+1 lap,0
+mexico,17,55,CarlosSainzSAI,Williams,67,DNF,0
+mexico,NC,14,FernandoAlonsoALO,Aston Martin,34,DNF,0
+mexico,NC,27,NicoHulkenbergHUL,Kick Sauber,25,DNF,0
+mexico,NC,30,LiamLawsonLAW,Racing Bulls,5,DNF,0
+brazil,1,4,LandoNorrisNOR,McLaren,71,1:32:01.596,25
+brazil,2,12,KimiAntonelliANT,Mercedes,71,+10.388s,18
+brazil,3,1,MaxVerstappenVER,Red Bull Racing,71,+10.750s,15
+brazil,4,63,GeorgeRussellRUS,Mercedes,71,+15.267s,12
+brazil,5,81,OscarPiastriPIA,McLaren,71,+15.749s,10
+brazil,6,87,OliverBearmanBEA,Haas F1 Team,71,+29.630s,8
+brazil,7,30,LiamLawsonLAW,Racing Bulls,71,+52.642s,6
+brazil,8,6,IsackHadjarHAD,Racing Bulls,71,+52.873s,4
+brazil,9,27,NicoHulkenbergHUL,Kick Sauber,71,+53.324s,2
+brazil,10,10,PierreGaslyGAS,Alpine,71,+53.914s,1
+brazil,11,23,AlexanderAlbonALB,Williams,71,+54.184s,0
+brazil,12,31,EstebanOconOCO,Haas F1 Team,71,+54.696s,0
+brazil,13,55,CarlosSainzSAI,Williams,71,+55.420s,0
+brazil,14,14,FernandoAlonsoALO,Aston Martin,71,+55.766s,0
+brazil,15,43,FrancoColapintoCOL,Alpine,71,+57.777s,0
+brazil,16,18,LanceStrollSTR,Aston Martin,71,+58.247s,0
+brazil,17,22,YukiTsunodaTSU,Red Bull Racing,71,+69.176s,0
+brazil,NC,44,LewisHamiltonHAM,Ferrari,37,DNF,0
+brazil,NC,16,CharlesLeclercLEC,Ferrari,5,DNF,0
+brazil,NC,5,GabrielBortoletoBOR,Kick Sauber,0,DNF,0
+las-vegas,1,1,MaxVerstappenVER,Red Bull Racing,50,1:21:08.429,25
+las-vegas,2,63,GeorgeRussellRUS,Mercedes,50,+23.546s,18
+las-vegas,3,12,KimiAntonelliANT,Mercedes,50,+30.488s,15
+las-vegas,4,16,CharlesLeclercLEC,Ferrari,50,+30.678s,12
+las-vegas,5,55,CarlosSainzSAI,Williams,50,+34.924s,10
+las-vegas,6,6,IsackHadjarHAD,Racing Bulls,50,+45.257s,8
+las-vegas,7,27,NicoHulkenbergHUL,Kick Sauber,50,+51.134s,6
+las-vegas,8,44,LewisHamiltonHAM,Ferrari,50,+59.369s,4
+las-vegas,9,31,EstebanOconOCO,Haas F1 Team,50,+60.635s,2
+las-vegas,10,87,OliverBearmanBEA,Haas F1 Team,50,+70.549s,1
+las-vegas,11,14,FernandoAlonsoALO,Aston Martin,50,+85.308s,0
+las-vegas,12,22,YukiTsunodaTSU,Red Bull Racing,50,+86.974s,0
+las-vegas,13,10,PierreGaslyGAS,Alpine,50,+91.702s,0
+las-vegas,14,30,LiamLawsonLAW,Racing Bulls,49,+1 lap,0
+las-vegas,15,43,FrancoColapintoCOL,Alpine,49,+1 lap,0
+las-vegas,NC,23,AlexanderAlbonALB,Williams,35,DNF,0
+las-vegas,NC,5,GabrielBortoletoBOR,Kick Sauber,2,DNF,0
+las-vegas,NC,18,LanceStrollSTR,Aston Martin,0,DNF,0
+las-vegas,DQ,4,LandoNorrisNOR,McLaren,,DSQ,0
+las-vegas,DQ,81,OscarPiastriPIA,McLaren,,DSQ,0
+qatar,1,1,MaxVerstappenVER,Red Bull Racing,57,1:24:38.241,25
+qatar,2,81,OscarPiastriPIA,McLaren,57,+7.995s,18
+qatar,3,55,CarlosSainzSAI,Williams,57,+22.665s,15
+qatar,4,4,LandoNorrisNOR,McLaren,57,+23.315s,12
+qatar,5,12,KimiAntonelliANT,Mercedes,57,+28.317s,10
+qatar,6,63,GeorgeRussellRUS,Mercedes,57,+48.599s,8
+qatar,7,14,FernandoAlonsoALO,Aston Martin,57,+54.045s,6
+qatar,8,16,CharlesLeclercLEC,Ferrari,57,+56.785s,4
+qatar,9,30,LiamLawsonLAW,Racing Bulls,57,+60.073s,2
+qatar,10,22,YukiTsunodaTSU,Red Bull Racing,57,+61.770s,1
+qatar,11,23,AlexanderAlbonALB,Williams,57,+66.931s,0
+qatar,12,44,LewisHamiltonHAM,Ferrari,57,+77.730s,0
+qatar,13,5,GabrielBortoletoBOR,Kick Sauber,57,+84.812s,0
+qatar,14,43,FrancoColapintoCOL,Alpine,56,+1 lap,0
+qatar,15,31,EstebanOconOCO,Haas F1 Team,56,+1 lap,0
+qatar,16,10,PierreGaslyGAS,Alpine,56,+1 lap,0
+qatar,17,18,LanceStrollSTR,Aston Martin,55,DNF,0
+qatar,18,6,IsackHadjarHAD,Racing Bulls,55,DNF,0
+qatar,NC,87,OliverBearmanBEA,Haas F1 Team,41,DNF,0
+qatar,NC,27,NicoHulkenbergHUL,Kick Sauber,6,DNF,0
+abu-dhabi,1,1,MaxVerstappenVER,Red Bull Racing,58,1:26:07.469,25
+abu-dhabi,2,81,OscarPiastriPIA,McLaren,58,+12.594s,18
+abu-dhabi,3,4,LandoNorrisNOR,McLaren,58,+16.572s,15
+abu-dhabi,4,16,CharlesLeclercLEC,Ferrari,58,+23.279s,12
+abu-dhabi,5,63,GeorgeRussellRUS,Mercedes,58,+48.563s,10
+abu-dhabi,6,14,FernandoAlonsoALO,Aston Martin,58,+67.562s,8
+abu-dhabi,7,31,EstebanOconOCO,Haas F1 Team,58,+69.876s,6
+abu-dhabi,8,44,LewisHamiltonHAM,Ferrari,58,+72.670s,4
+abu-dhabi,9,27,NicoHulkenbergHUL,Kick Sauber,58,+79.014s,2
+abu-dhabi,10,18,LanceStrollSTR,Aston Martin,58,+79.523s,1
+abu-dhabi,11,5,GabrielBortoletoBOR,Kick Sauber,58,+81.043s,0
+abu-dhabi,12,87,OliverBearmanBEA,Haas F1 Team,58,+81.166s,0
+abu-dhabi,13,55,CarlosSainzSAI,Williams,58,+82.158s,0
+abu-dhabi,14,22,YukiTsunodaTSU,Red Bull Racing,58,+83.794s,0
+abu-dhabi,15,12,KimiAntonelliANT,Mercedes,58,+84.399s,0
+abu-dhabi,16,23,AlexanderAlbonALB,Williams,58,+90.327s,0
+abu-dhabi,17,6,IsackHadjarHAD,Racing Bulls,57,+1 lap,0
+abu-dhabi,18,30,LiamLawsonLAW,Racing Bulls,57,+1 lap,0
+abu-dhabi,19,10,PierreGaslyGAS,Alpine,57,+1 lap,0
+abu-dhabi,20,43,FrancoColapintoCOL,Alpine,57,+1 lap,0
