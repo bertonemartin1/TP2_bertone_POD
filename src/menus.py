@@ -37,6 +37,38 @@ def leer_texto(mensaje: str) -> str:
         print("Error: este campo no puede estar vacio.")
 
 
+def leer_seleccion(
+    mensaje: str,
+    opciones_validas: list[str],
+    tipo: str,
+    *,
+    opcion_volver: str | None = None,
+) -> str | None:
+    if not opciones_validas:
+        raise ValueError(f"No hay opciones de {tipo} disponibles para seleccionar.")
+
+    opciones_por_nombre = {
+        opcion.casefold(): opcion for opcion in opciones_validas
+    }
+    while True:
+        entrada = leer_texto(mensaje)
+        if (
+            opcion_volver is not None
+            and entrada.casefold() == opcion_volver.casefold()
+        ):
+            return None
+
+        opcion = opciones_por_nombre.get(entrada.casefold())
+        if opcion is not None:
+            return opcion
+
+        disponibles = ", ".join(opciones_validas)
+        print(
+            f"Error: {tipo} '{entrada}' no válido. "
+            f"Opciones disponibles: {disponibles}."
+        )
+
+
 def menu_constructores():
     while True:
         print("\n--- Constructores ---")
@@ -50,10 +82,13 @@ def menu_constructores():
         if opcion == 1:
             comparar_campeonato_constructores()
         elif opcion == 2:
+            carreras = obtener_carreras_disponibles()
             print("\nCarreras disponibles:")
-            for carrera_disponible in obtener_carreras_disponibles():
+            for carrera_disponible in carreras:
                 print(f"- {carrera_disponible}")
-            carrera = leer_texto("Ingrese la carrera: ")
+            carrera = leer_seleccion("Ingrese la carrera: ", carreras, "carrera")
+            if carrera is None:
+                continue
             comparar_constructores_por_carrera(carrera)
 
 
@@ -71,29 +106,43 @@ def menu_pilotos():
         if opcion == 1:
             comparar_campeonato_pilotos()
         elif opcion == 2:
+            carreras = obtener_carreras_disponibles()
             print("\nCarreras disponibles:")
-            for carrera_disponible in obtener_carreras_disponibles():
+            for carrera_disponible in carreras:
                 print(f"- {carrera_disponible}")
-            carrera = leer_texto("Ingrese la carrera: ")
+            carrera = leer_seleccion("Ingrese la carrera: ", carreras, "carrera")
+            if carrera is None:
+                continue
             comparar_pilotos_por_carrera(carrera)
         elif opcion == 3:
+            pilotos = obtener_nombres_pilotos()
             print("\nPilotos disponibles:")
-            for nombre in obtener_nombres_pilotos():
+            for nombre in pilotos:
                 print(f"- {nombre}")
-            piloto = leer_texto("Ingrese el nombre del piloto: ")
+            piloto = leer_seleccion(
+                "Ingrese el nombre del piloto: ",
+                pilotos,
+                "piloto",
+            )
+            if piloto is None:
+                continue
             comparar_piloto_temporada(piloto)
 
 
 def menu_h2h():
     while True:
+        equipos = obtener_equipos_disponibles()
         print("\nEquipos disponibles:")
-        for equipo_disponible in obtener_equipos_disponibles():
+        for equipo_disponible in equipos:
             print(f"- {equipo_disponible}")
-        equipo = leer_texto(
+        equipo = leer_seleccion(
             "\nIngrese el equipo para la comparacion h2h "
-            "(o 0 para volver): "
+            "(o 0 para volver): ",
+            equipos,
+            "equipo",
+            opcion_volver="0",
         )
-        if equipo == "0":
+        if equipo is None:
             return
         comparar_h2h_equipo(equipo)
 
