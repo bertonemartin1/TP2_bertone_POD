@@ -13,6 +13,29 @@ import comparaciones
 
 
 class ComparacionesTests(unittest.TestCase):
+    def test_comparacion_de_carrera_da_el_mismo_resultado_con_csv_y_json(self):
+        with patch.object(
+            comparaciones,
+            "ARCHIVO_CARRERAS",
+            "f1_2025_race_results.json",
+        ):
+            with patch.object(comparaciones, "graficar_puntos_pilotos_carrera"):
+                resultado_json = comparaciones.comparar_pilotos_por_carrera(
+                    "Australia"
+                )
+
+        with patch.object(
+            comparaciones,
+            "ARCHIVO_CARRERAS",
+            "f1_2025_race_results.csv",
+        ):
+            with patch.object(comparaciones, "graficar_puntos_pilotos_carrera"):
+                resultado_csv = comparaciones.comparar_pilotos_por_carrera(
+                    "Australia"
+                )
+
+        pd.testing.assert_frame_equal(resultado_json, resultado_csv)
+
     def test_leer_csv_limpia_texto_y_convierte_puntos(self):
         datos = pd.DataFrame(
             {"team": ["  McLaren  "], "points": ["12.5"]}

@@ -11,7 +11,7 @@ from graficos import (
 from transformaciones import transformar_archivo
 
 
-ARCHIVO_CARRERAS = "f1_2025_race_results.csv"
+ARCHIVO_CARRERAS = "f1_2025_race_results.json"
 ARCHIVO_CAMPEONATO_CONSTRUCTORES = "f1_2025_teams_standings.csv"
 ARCHIVO_CAMPEONATO_PILOTOS = "f1_2025_drivers_standings.csv"
 
