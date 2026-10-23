@@ -1,4 +1,9 @@
+import contextlib
+import io
+import importlib
+import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -9,32 +14,315 @@ import pandas as pd
 SRC_DIR = Path(__file__).resolve().parents[1] / "src"
 sys.path.insert(0, str(SRC_DIR))
 
-import comparaciones
+comparaciones = importlib.import_module("comparaciones")
+modelos = importlib.import_module("modelos")
+transformaciones = importlib.import_module("transformaciones")
+validaciones = importlib.import_module("validaciones")
+CampeonatoF1 = modelos.CampeonatoF1
+TipoCampeonato = modelos.TipoCampeonato
 
 
 class ComparacionesTests(unittest.TestCase):
-    def test_comparacion_de_carrera_da_el_mismo_resultado_con_csv_y_json(self):
-        with patch.object(
-            comparaciones,
-            "ARCHIVO_CARRERAS",
-            "f1_2025_race_results.json",
-        ):
-            with patch.object(comparaciones, "graficar_puntos_pilotos_carrera"):
-                resultado_json = comparaciones.comparar_pilotos_por_carrera(
-                    "Australia"
-                )
+    def test_campeonatos_equivalentes_csv_json_conservan_tablas_y_acumulados(self):
+        resultados = [
+            {
+                "race": "Australia",
+                "position": "1",
+                "driver_number": 4,
+                "driver": "LandoNorrisNOR",
+                "team": "McLaren",
+                "laps": 57,
+                "time": "1:42:06.304",
+                "points": 25,
+            },
+            {
+                "race": "Australia",
+                "position": "2",
+                "driver_number": 16,
+                "driver": "CharlesLeclercLEC",
+                "team": "Ferrari",
+                "laps": 57,
+                "time": "+1.0s",
+                "points": 18,
+            },
+            {
+                "race": "China",
+                "position": "2",
+                "driver_number": 4,
+                "driver": "LandoNorrisNOR",
+                "team": "McLaren",
+                "laps": 56,
+                "time": "+1.0s",
+                "points": 18,
+            },
+        ]
+        with tempfile.TemporaryDirectory() as directorio:
+            ruta = Path(directorio)
+            resultados_df = pd.DataFrame(resultados)
+            resultados_df.to_csv(
+                ruta / "f1_2025_race_results.csv",
+                index=False,
+            )
+            (ruta / "f1_2025_race_results.json").write_text(
+                json.dumps(resultados),
+                encoding="utf-8",
+            )
+            pd.DataFrame(
+                {
+                    "position": [1, 2],
+                    "team": ["McLaren", "Ferrari"],
+                    "points": [43, 18],
+                }
+            ).to_csv(
+                ruta / "f1_2025_teams_standings.csv",
+                index=False,
+            )
+            pd.DataFrame(
+                {
+                    "position": [1, 2],
+                    "driver": ["LandoNorrisNOR", "CharlesLeclercLEC"],
+                    "nationality": ["GBR", "MON"],
+                    "team": ["McLaren", "Ferrari"],
+                    "points": [43, 18],
+                }
+            ).to_csv(
+                ruta / "f1_2025_drivers_standings.csv",
+                index=False,
+            )
 
-        with patch.object(
-            comparaciones,
-            "ARCHIVO_CARRERAS",
-            "f1_2025_race_results.csv",
+            acumulados_por_formato = {}
+            clasificaciones_por_formato = {}
+            temporadas_por_formato = {}
+            with patch.object(transformaciones, "DATA_DIR", ruta):
+                for extension in ("csv", "json"):
+                    with self.subTest(extension=extension):
+                        with patch.object(
+                            comparaciones,
+                            "ARCHIVO_CARRERAS",
+                            f"f1_2025_race_results.{extension}",
+                        ):
+                            with patch.object(
+                                comparaciones,
+                                "graficar_evolucion_puntos_constructores",
+                            ) as grafico_constructores:
+                                with contextlib.redirect_stdout(
+                                    io.StringIO()
+                                ):
+                                    clasificacion_constructores = (
+                                        comparaciones
+                                        .comparar_campeonato_constructores()
+                                    )
+                            with patch.object(
+                                comparaciones,
+                                "graficar_evolucion_puntos_pilotos",
+                            ) as grafico_pilotos:
+                                with contextlib.redirect_stdout(
+                                    io.StringIO()
+                                ):
+                                    clasificacion_pilotos = (
+                                        comparaciones.comparar_campeonato_pilotos()
+                                    )
+                            with patch.object(
+                                comparaciones,
+                                "graficar_evolucion_puntos_piloto",
+                            ):
+                                with contextlib.redirect_stdout(
+                                    io.StringIO()
+                                ):
+                                    temporada_piloto = (
+                                        comparaciones.comparar_piloto_temporada(
+                                            "CharlesLeclerc"
+                                        )
+                                    )
+                        clasificaciones_por_formato[extension] = (
+                            clasificacion_constructores,
+                            clasificacion_pilotos,
+                        )
+                        temporadas_por_formato[extension] = temporada_piloto
+                        acumulados_por_formato[extension] = (
+                            grafico_constructores.call_args.args[0],
+                            grafico_pilotos.call_args.args[0],
+                        )
+
+        for tabla_csv, tabla_json in zip(
+            clasificaciones_por_formato["csv"],
+            clasificaciones_por_formato["json"],
         ):
-            with patch.object(comparaciones, "graficar_puntos_pilotos_carrera"):
-                resultado_csv = comparaciones.comparar_pilotos_por_carrera(
-                    "Australia"
-                )
+            pd.testing.assert_frame_equal(tabla_csv, tabla_json)
+        pd.testing.assert_frame_equal(
+            temporadas_por_formato["csv"],
+            temporadas_por_formato["json"],
+        )
+        for acumulado_csv, acumulado_json in zip(
+            acumulados_por_formato["csv"],
+            acumulados_por_formato["json"],
+        ):
+            pd.testing.assert_frame_equal(acumulado_csv, acumulado_json)
+        self.assertEqual(
+            acumulados_por_formato["json"][0].index.tolist(),
+            ["Australia", "China"],
+        )
+        self.assertEqual(
+            acumulados_por_formato["json"][0].loc["China", "Ferrari"],
+            18,
+        )
+        self.assertEqual(
+            acumulados_por_formato["json"][1].loc["China", "CharlesLeclerc"],
+            18,
+        )
+        self.assertEqual(
+            temporadas_por_formato["json"].loc["China", "Posición"],
+            "Sin participación",
+        )
+        self.assertEqual(
+            temporadas_por_formato["json"].loc["China", "Puntos"],
+            0,
+        )
+
+    def test_comparacion_excluye_fila_rechazada_y_muestra_motivo(self):
+        registros = [
+            {
+                "race": "Australia",
+                "position": "1",
+                "driver_number": 4,
+                "driver": "LandoNorrisNOR",
+                "team": "McLaren",
+                "laps": 57,
+                "time": "1:42:06.304",
+                "points": 25,
+            },
+            {
+                "race": "Australia",
+                "position": "2",
+                "driver_number": 1,
+                "driver": "MaxVerstappenVER",
+                "team": "Red Bull Racing",
+                "laps": 57,
+                "time": "+0.895s",
+                "points": -1,
+            },
+        ]
+        with tempfile.TemporaryDirectory() as directorio:
+            ruta = Path(directorio) / "f1_2025_race_results.json"
+            ruta.write_text(json.dumps(registros), encoding="utf-8")
+            with patch.object(transformaciones, "DATA_DIR", Path(directorio)):
+                with patch.object(
+                    comparaciones,
+                    "ARCHIVO_CARRERAS",
+                    ruta.name,
+                ):
+                    with patch.object(
+                        comparaciones,
+                        "graficar_puntos_pilotos_carrera",
+                    ):
+                        with contextlib.redirect_stdout(io.StringIO()) as salida:
+                            tabla = comparaciones.comparar_pilotos_por_carrera(
+                                "Australia"
+                            )
+
+        self.assertEqual(tabla["driver"].tolist(), ["LandoNorris"])
+        self.assertIn("points: no puede ser negativo", salida.getvalue())
+        self.assertEqual(
+            tabla.attrs["rechazos"]["fila"].tolist(),
+            [2],
+        )
+        self.assertEqual(tabla["points"].tolist(), [25])
+
+    def test_comparacion_no_genera_resultado_si_todas_las_filas_son_invalidas(self):
+        registro = {
+            "race": "Australia",
+            "position": "1",
+            "driver_number": 4,
+            "driver": "LandoNorrisNOR",
+            "team": "McLaren",
+            "laps": 57,
+            "time": "1:42:06.304",
+            "points": -1,
+        }
+        with tempfile.TemporaryDirectory() as directorio:
+            ruta = Path(directorio) / "f1_2025_race_results.json"
+            ruta.write_text(json.dumps([registro]), encoding="utf-8")
+            with patch.object(transformaciones, "DATA_DIR", Path(directorio)):
+                with patch.object(
+                    comparaciones,
+                    "ARCHIVO_CARRERAS",
+                    ruta.name,
+                ):
+                    with patch.object(
+                        comparaciones,
+                        "graficar_puntos_pilotos_carrera",
+                    ) as graficar:
+                        with self.assertRaises(
+                            validaciones.DatosSinRegistrosValidosError
+                        ):
+                            comparaciones.comparar_pilotos_por_carrera(
+                                "Australia"
+                            )
+
+        graficar.assert_not_called()
+
+    def test_comparacion_de_carrera_da_el_mismo_resultado_con_csv_y_json(self):
+        registros = [
+            {
+                "race": "Australia",
+                "position": "2",
+                "driver_number": 4,
+                "driver": "LandoNorrisNOR",
+                "team": "McLaren",
+                "laps": 57,
+                "time": "+1.0s",
+                "points": 18,
+            },
+            {
+                "race": "Australia",
+                "position": "1",
+                "driver_number": 1,
+                "driver": "MaxVerstappenVER",
+                "team": "Red Bull Racing",
+                "laps": 58,
+                "time": "1:42:06.304",
+                "points": 25,
+            },
+        ]
+        with tempfile.TemporaryDirectory() as directorio:
+            ruta = Path(directorio)
+            datos = pd.DataFrame(registros)
+            datos.to_csv(ruta / "f1_2025_race_results.csv", index=False)
+            (ruta / "f1_2025_race_results.json").write_text(
+                json.dumps(registros),
+                encoding="utf-8",
+            )
+            with patch.object(transformaciones, "DATA_DIR", ruta):
+                with patch.object(
+                    comparaciones,
+                    "graficar_puntos_pilotos_carrera",
+                ):
+                    with patch.object(
+                        comparaciones,
+                        "ARCHIVO_CARRERAS",
+                        "f1_2025_race_results.json",
+                    ):
+                        resultado_json = (
+                            comparaciones.comparar_pilotos_por_carrera(
+                                "Australia"
+                            )
+                        )
+                    with patch.object(
+                        comparaciones,
+                        "ARCHIVO_CARRERAS",
+                        "f1_2025_race_results.csv",
+                    ):
+                        resultado_csv = (
+                            comparaciones.comparar_pilotos_por_carrera(
+                                "Australia"
+                            )
+                        )
 
         pd.testing.assert_frame_equal(resultado_json, resultado_csv)
+        self.assertEqual(
+            resultado_csv["driver"].tolist(),
+            ["MaxVerstappen", "LandoNorris"],
+        )
 
     def test_leer_csv_limpia_texto_y_convierte_puntos(self):
         datos = pd.DataFrame(
@@ -86,27 +374,6 @@ class ComparacionesTests(unittest.TestCase):
                             ("team", "points"),
                         )
 
-    def test_calcular_puntos_acumulados_por_carrera_y_equipo(self):
-        resultados = pd.DataFrame(
-            {
-                "race": ["Australia", "Australia", "China"],
-                "team": ["McLaren", "Ferrari", "McLaren"],
-                "points": [10, 5, 3],
-            }
-        )
-
-        acumulados = comparaciones._calcular_puntos_acumulados(resultados)
-
-        self.assertEqual(acumulados.loc["Australia", "McLaren"], 10)
-        self.assertEqual(acumulados.loc["China", "McLaren"], 13)
-        self.assertEqual(acumulados.loc["China", "Ferrari"], 5)
-
-    def test_calcular_puntos_acumulados_rechaza_resultados_vacios(self):
-        resultados = pd.DataFrame(columns=["race", "team", "points"])
-
-        with self.assertRaisesRegex(ValueError, "No hay resultados"):
-            comparaciones._calcular_puntos_acumulados(resultados)
-
     def test_filtrar_carrera_no_distingue_mayusculas_ni_espacios(self):
         resultados = pd.DataFrame(
             {"race": ["Australia", "China"], "points": [10, 5]}
@@ -152,23 +419,36 @@ class ComparacionesTests(unittest.TestCase):
         carreras = pd.DataFrame(
             {
                 "race": ["Australia", "Australia", "China"],
+                "position": ["1", "2", "3"],
                 "team": ["McLaren", "Ferrari", "McLaren"],
                 "points": [5, 7, 3],
             }
         )
+
+        tipos_inicializados = []
+
+        def crear_campeonato(
+            tipo: TipoCampeonato,
+            datos_clasificacion: pd.DataFrame,
+            resultados_carreras: pd.DataFrame,
+        ) -> CampeonatoF1:
+            tipos_inicializados.append(tipo)
+            return CampeonatoF1(tipo, datos_clasificacion, resultados_carreras)
 
         with patch.object(
             comparaciones,
             "_leer_csv_puntuaciones",
             side_effect=[clasificacion, carreras],
         ):
-            with patch.object(
-                comparaciones,
-                "graficar_evolucion_puntos_constructores",
-            ) as graficar:
-                resultado = comparaciones.comparar_campeonato_constructores()
+            with patch.object(comparaciones, "CampeonatoF1", crear_campeonato):
+                with patch.object(
+                    comparaciones,
+                    "graficar_evolucion_puntos_constructores",
+                ) as graficar:
+                    resultado = comparaciones.comparar_campeonato_constructores()
 
         self.assertEqual(resultado["team"].tolist(), ["Ferrari", "McLaren"])
+        self.assertEqual(tipos_inicializados, ["constructores"])
         self.assertEqual(
             graficar.call_args.args[0].loc["China", "McLaren"],
             8,
@@ -182,7 +462,17 @@ class ComparacionesTests(unittest.TestCase):
         with patch.object(
             comparaciones,
             "_leer_csv_puntuaciones",
-            return_value=clasificacion,
+            side_effect=[
+                clasificacion,
+                pd.DataFrame(
+                    {
+                        "race": ["Australia"],
+                        "position": ["1"],
+                        "team": ["McLaren"],
+                        "points": [5],
+                    }
+                ),
+            ],
         ):
             with self.assertRaisesRegex(ValueError, "posiciones inválidas"):
                 comparaciones.comparar_campeonato_constructores()
@@ -199,6 +489,7 @@ class ComparacionesTests(unittest.TestCase):
         carreras = pd.DataFrame(
             {
                 "race": ["Australia", "Australia", "China"],
+                "position": ["1", "2", "3"],
                 "driver": ["Piloto A", "Piloto B", "Piloto A"],
                 "points": [5, 7, 3],
             }
@@ -237,7 +528,12 @@ class ComparacionesTests(unittest.TestCase):
             side_effect=[
                 clasificacion,
                 pd.DataFrame(
-                    {"race": ["Australia"], "driver": ["Piloto A"], "points": [5]}
+                    {
+                        "race": ["Australia"],
+                        "position": ["1"],
+                        "driver": ["Piloto A"],
+                        "points": [5],
+                    }
                 ),
             ],
         ):

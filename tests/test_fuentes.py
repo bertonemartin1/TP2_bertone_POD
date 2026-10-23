@@ -1,8 +1,10 @@
+import importlib
 import json
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import pandas as pd
 
@@ -10,7 +12,11 @@ import pandas as pd
 SRC_DIR = Path(__file__).resolve().parents[1] / "src"
 sys.path.insert(0, str(SRC_DIR))
 
-from fuentes import FuenteCSV, FuenteDatos, FuenteJSON, obtener_fuente
+fuentes = importlib.import_module("fuentes")
+FuenteCSV = fuentes.FuenteCSV
+FuenteDatos = fuentes.FuenteDatos
+FuenteJSON = fuentes.FuenteJSON
+obtener_fuente = fuentes.obtener_fuente
 
 
 class FuentesTests(unittest.TestCase):
@@ -75,6 +81,34 @@ class FuentesTests(unittest.TestCase):
             )
 
             with self.assertRaisesRegex(ValueError, "mismas columnas"):
+                FuenteJSON().cargar(ruta)
+
+    def test_fuente_csv_rechaza_estructura_mal_formada(self):
+        with tempfile.TemporaryDirectory() as directorio:
+            ruta = Path(directorio) / "resultados.csv"
+            with patch.object(
+                pd,
+                "read_csv",
+                side_effect=pd.errors.ParserError("estructura inválida"),
+            ):
+                with self.assertRaisesRegex(
+                    ValueError,
+                    "No se pudo interpretar el CSV",
+                ):
+                    FuenteCSV().cargar(ruta)
+
+    def test_fuente_csv_informa_archivo_inexistente(self):
+        ruta = Path("no_existe") / "resultados.csv"
+
+        with self.assertRaises(FileNotFoundError):
+            FuenteCSV().cargar(ruta)
+
+    def test_fuente_json_rechaza_codificacion_invalida_con_ruta(self):
+        with tempfile.TemporaryDirectory() as directorio:
+            ruta = Path(directorio) / "resultados.json"
+            ruta.write_bytes(b"\xff")
+
+            with self.assertRaisesRegex(ValueError, "JSON inválido"):
                 FuenteJSON().cargar(ruta)
 
 
