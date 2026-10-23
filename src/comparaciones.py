@@ -8,6 +8,7 @@ from graficos import (
     graficar_puntos_constructores_carrera,
     graficar_puntos_pilotos_carrera,
 )
+from modelos import CampeonatoF1
 from transformaciones import transformar_archivo
 
 
@@ -50,26 +51,6 @@ def _leer_csv_puntuaciones(
             f"Hay puntos vacíos, no numéricos o negativos en {nombre_archivo}"
         )
     return resultados
-
-
-def _calcular_puntos_acumulados(resultados_carreras: pd.DataFrame) -> pd.DataFrame:
-    calendario = resultados_carreras["race"].drop_duplicates().tolist()
-    constructores = sorted(resultados_carreras["team"].unique())
-    if not calendario or not constructores:
-        raise ValueError("No hay resultados para calcular el campeonato.")
-
-    puntos_por_carrera = (
-        resultados_carreras.groupby(["race", "team"], sort=False)["points"]
-        .sum()
-        .unstack(fill_value=0)
-        .reindex(
-            index=pd.Index(calendario, name="race"),
-            columns=pd.Index(constructores, name="team"),
-            fill_value=0,
-        )
-        .fillna(0)
-    )
-    return puntos_por_carrera.cumsum()
 
 
 def _filtrar_por_carrera(resultados: pd.DataFrame, carrera: str) -> pd.DataFrame:
@@ -117,26 +98,21 @@ def _buscar_nombre_disponible(
 
 def comparar_campeonato_constructores() -> pd.DataFrame:
     """Muestra la clasificación final del campeonato de constructores."""
-    clasificacion = _leer_csv_puntuaciones(
+    datos_clasificacion = _leer_csv_puntuaciones(
         ARCHIVO_CAMPEONATO_CONSTRUCTORES,
         ("position", "team", "points"),
     )
-    clasificacion["position"] = pd.to_numeric(
-        clasificacion["position"], errors="coerce"
-    )
-    if clasificacion["position"].isna().any():
-        raise ValueError(
-            f"Hay posiciones inválidas en {ARCHIVO_CAMPEONATO_CONSTRUCTORES}"
-        )
-    clasificacion = clasificacion.sort_values(
-        "position", kind="stable"
-    ).reset_index(drop=True)
-
     resultados_carreras = _leer_csv_puntuaciones(
         ARCHIVO_CARRERAS,
-        ("race", "team", "points"),
+        ("race", "position", "team", "points"),
     )
-    puntos_acumulados = _calcular_puntos_acumulados(resultados_carreras)
+    campeonato = CampeonatoF1(
+        "constructores",
+        datos_clasificacion,
+        resultados_carreras,
+    )
+    clasificacion = campeonato.obtener_clasificacion()
+    puntos_acumulados = campeonato.calcular_puntos_acumulados()
 
     print("\nCampeonato de constructores:")
     print(clasificacion.to_string(index=False))
@@ -151,32 +127,20 @@ def comparar_campeonato_constructores() -> pd.DataFrame:
 
 def comparar_campeonato_pilotos() -> pd.DataFrame:
     """Muestra la clasificación final del campeonato de pilotos."""
-    clasificacion = _leer_csv_puntuaciones(
+    datos_clasificacion = _leer_csv_puntuaciones(
         ARCHIVO_CAMPEONATO_PILOTOS,
         ("position", "driver", "team", "points"),
     )
-    clasificacion["position"] = pd.to_numeric(
-        clasificacion["position"], errors="coerce"
-    )
-    if clasificacion["position"].isna().any():
-        raise ValueError(
-            f"Hay posiciones inválidas en {ARCHIVO_CAMPEONATO_PILOTOS}"
-        )
-    clasificacion = clasificacion.sort_values(
-        "position", kind="stable"
-    ).reset_index(drop=True)
-
     resultados_carreras = _leer_csv_puntuaciones(
         ARCHIVO_CARRERAS,
-        ("race", "driver", "points"),
+        ("race", "position", "driver", "points"),
         conservar_driver=True,
     )
-    if clasificacion["driver"].duplicated().any():
+    if datos_clasificacion["driver"].duplicated().any():
         raise ValueError(
             "Los nombres de pilotos no son únicos después de eliminar el sufijo."
         )
-    carreras = resultados_carreras["race"].drop_duplicates().tolist()
-    pilotos = clasificacion["driver"].tolist()
+    pilotos = datos_clasificacion["driver"].tolist()
     pilotos_en_resultados = set(resultados_carreras["driver"].unique())
     pilotos_sin_resultados = set(pilotos).difference(pilotos_en_resultados)
     if pilotos_sin_resultados:
@@ -185,19 +149,14 @@ def comparar_campeonato_pilotos() -> pd.DataFrame:
             "No hay resultados de carrera para estos pilotos de la "
             f"clasificación: {faltantes}"
         )
-
-    puntos_por_carrera = (
-        resultados_carreras.groupby(["race", "driver"], sort=False)["points"]
-        .sum()
-        .unstack(fill_value=0)
-        .reindex(
-            index=pd.Index(carreras, name="race"),
-            columns=pd.Index(pilotos, name="driver"),
-            fill_value=0,
-        )
-        .fillna(0)
+    campeonato = CampeonatoF1(
+        "pilotos",
+        datos_clasificacion,
+        resultados_carreras,
     )
-    puntos_acumulados = puntos_por_carrera.cumsum()
+    clasificacion = campeonato.obtener_clasificacion()
+    pilotos = clasificacion["driver"].tolist()
+    puntos_acumulados = campeonato.calcular_puntos_acumulados()
 
     print("\nCampeonato de pilotos:")
     print(clasificacion.to_string(index=False))

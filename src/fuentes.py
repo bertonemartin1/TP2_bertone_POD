@@ -19,7 +19,16 @@ class FuenteCSV(FuenteDatos):
     """Carga registros tabulares desde archivos CSV."""
 
     def cargar(self, ruta: str | Path) -> pd.DataFrame:
-        return pd.read_csv(ruta)
+        try:
+            return pd.read_csv(ruta)
+        except (
+            pd.errors.EmptyDataError,
+            pd.errors.ParserError,
+            UnicodeDecodeError,
+        ) as error:
+            raise ValueError(
+                f"No se pudo interpretar el CSV {ruta}: {error}"
+            ) from error
 
 
 class FuenteJSON(FuenteDatos):
@@ -30,7 +39,7 @@ class FuenteJSON(FuenteDatos):
         try:
             with ruta_json.open(encoding="utf-8") as archivo:
                 registros = json.load(archivo)
-        except json.JSONDecodeError as error:
+        except (json.JSONDecodeError, UnicodeDecodeError) as error:
             raise ValueError(f"JSON inválido en {ruta_json}: {error}") from error
 
         if not isinstance(registros, list):

@@ -5,6 +5,11 @@ from pathlib import Path
 import pandas as pd
 
 from fuentes import obtener_fuente
+from validaciones import (
+    DatosSinRegistrosValidosError,
+    informar_rechazos,
+    validar_archivo,
+)
 
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -52,11 +57,20 @@ def transformar_archivo(
         )
 
     fuente = obtener_fuente(nombre_archivo)
-    ruta_csv = DATA_DIR / nombre_archivo
-    if not ruta_csv.is_file():
-        raise FileNotFoundError(f"No se encontró el archivo: {ruta_csv}")
+    ruta_datos = DATA_DIR / nombre_archivo
+    if not ruta_datos.is_file():
+        raise FileNotFoundError(f"No se encontró el archivo: {ruta_datos}")
 
-    datos = fuente.cargar(ruta_csv)
+    datos_cargados = fuente.cargar(ruta_datos)
+    validacion = validar_archivo(ruta_datos, datos_cargados)
+    informar_rechazos(nombre_archivo, validacion.rechazos)
+    if validacion.datos_validos.empty:
+        raise DatosSinRegistrosValidosError(
+            nombre_archivo,
+            validacion.rechazos,
+        )
+
+    datos = validacion.datos_validos.copy(deep=True)
     columnas = COLUMNAS_A_ELIMINAR.get(archivo_csv, ())
     if conservar_driver and archivo_csv == "f1_2025_race_results.csv":
         columnas = ()
@@ -68,4 +82,6 @@ def transformar_archivo(
     } and "driver" in datos.columns:
         datos["driver"] = normalizar_nombres_pilotos(datos["driver"])
 
+    datos.attrs["archivo_origen"] = nombre_archivo
+    datos.attrs["rechazos"] = validacion.rechazos.copy(deep=True)
     return datos
